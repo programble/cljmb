@@ -4,7 +4,7 @@
 
 (def ^:dynamic *api* "http://musicbrainz.org/ws/2/")
 
-(defn ^:private req [url params]
+(defn- req [url params]
   (:body (http/get (str *api* url)
            {:throw-exceptions false
             :as :json
@@ -12,10 +12,10 @@
             :accept :json
             :query-params (assoc params :fmt "json")})))
 
-(defn ^:private incs [incs]
+(defn- incs [incs]
   {:inc (join \+ (map name incs))})
 
-(defn ^:private offset [per page]
+(defn- offset [per page]
   {:limit per
    :offset (* per (dec page))})
 
