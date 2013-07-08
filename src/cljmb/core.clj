@@ -25,6 +25,14 @@
   ([entity mbid subqueries]
    (req (str (name entity) "/" mbid) (incs subqueries))))
 
+(defn lookup-discid
+  "Look up releases associated with a DiscID."
+  ([discid] (lookup-discid discid []))
+  ([discid subqueries & {:keys [cdstubs toc] :or {cdstubs true}}]
+   (req (str "discid/" discid) (merge (incs subqueries)
+                                      (when-not cdstubs {:cdstubs "no"})
+                                      (when toc {:toc toc})))))
+
 ;; TODO: Non-MBID lookups
 
 (defn browse
