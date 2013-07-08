@@ -1,4 +1,4 @@
-(defproject cljmb "0.1.0-SNAPSHOT"
+(defproject cljmb "0.1.0"
   :description "MusicBrainz API client"
   :url "https://github.com/programble/cljmb"
   :license {:name "ISC License"
