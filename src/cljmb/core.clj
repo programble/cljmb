@@ -33,8 +33,6 @@
                                       (when-not cdstubs {:cdstubs "no"})
                                       (when toc {:toc toc})))))
 
-;; TODO: Non-MBID lookups
-
 (defn browse
   "Browse for entities linked to an MBID."
   ([entity links per page] (browse entity links [] per page))
